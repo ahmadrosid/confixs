@@ -1,0 +1,44 @@
+project_name: confixs
+
+dist: .builds
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  # used only for tests
+  - id: build_cgo
+    main: ./examples/base
+    binary: confixs
+    ldflags:
+      - -s -w -X github.com/ahmadrosid/confixs.Version={{ .Version }}
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - linux
+    goarch:
+      - amd64
+
+release:
+  draft: true
+
+archives:
+  - id: archive_noncgo
+    builds: [build_noncgo]
+    format: zip
+    files:
+      - LICENSE.md
+      - CHANGELOG.md
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: '{{ incpatch .Version }}-next'
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^ui:'
