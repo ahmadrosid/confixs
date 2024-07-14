@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/ahmadrosid/confixs/tools/file"
 	"github.com/ahmadrosid/confixs/ui"
 	"github.com/labstack/echo/v5"
 	"github.com/pocketbase/pocketbase"
@@ -119,10 +120,9 @@ func main() {
 	})
 
 	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
-		e.Router.GET("/hello/:name", func(c echo.Context) error {
-			name := c.PathParam("name")
-
-			return c.JSON(http.StatusOK, map[string]string{"message": "Hello " + name})
+		e.Router.GET("/list/config", func(c echo.Context) error {
+			files, _ := file.GetFileList("./")
+			return c.JSON(http.StatusOK, map[string]interface{}{"data": files})
 		} /* optional middlewares */)
 
 		// serves static files from the provided public dir (if exists)
