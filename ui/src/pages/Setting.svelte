@@ -14,7 +14,7 @@
   };
 
   let user = {
-    fullname: "",
+    name: "",
     username: "",
     email: "",
     password: "",
@@ -39,6 +39,7 @@
         username: authUser.username,
         email: authUser.email,
         photoUrl: authUser.avatar,
+        name: authUser.name,
         // In a real app, fetch these from your backend
         ...defaultUserPreferences,
       };
@@ -113,27 +114,27 @@
                     <div class="space-y-4">
                         <div>
                         <label
-                            for="username"
+                            for="name"
                             class="block text-sm font-medium text-gray-700"
-                            >Username</label
+                            >Full Name</label
                         >
                         <input
                             type="text"
-                            id="username"
-                            bind:value={user.username}
+                            id="name"
+                            bind:value={user.name}
                             class="mt-1 block w-full border border-gray-800 shadow-sm p-2"
                         />
                         </div>
                         <div>
                         <label
-                            for="fullname"
+                            for="username"
                             class="block text-sm font-medium text-gray-700"
                             >Full name</label
                         >
                         <input
                             type="text"
                             id="username"
-                            bind:value={user.fullname}
+                            bind:value={user.username}
                             class="mt-1 block w-full border border-gray-800 shadow-sm p-2"
                         />
                         </div>

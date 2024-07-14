@@ -41,7 +41,7 @@
                             Actions
                         </h2>
                         <div>
-                            <Button className="inline-flex items-center gap-2 pl-3"> <PlusIcon size="20"/> Add Project</Button>
+                            <Button className="inline-flex items-center gap-2 pl-3"> <PlusIcon size="20"/> Add</Button>
                         </div>
                     </div>
                 </div>

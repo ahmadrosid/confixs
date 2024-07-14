@@ -33,13 +33,13 @@
 <div class="container mx-auto max-w-6xl px-4 relative">
   <main>
     <div class="py-16">
-      <h1 class="text-5xl font-bold text-center max-w-4xl mx-auto">
-        Intersight: All-in-one dashboard for internship management
+      <h1 class="text-6xl font-bold text-center text-balance">
+        Simplify Your Nginx Configuration Management!
       </h1>
-      <p class="text-xl text-center mt-4">
-        Simplify student oversight in one intuitive platform
+      <p class="text-xl text-center mt-6">
+        Nginx Made Easy: Configure, Secure, and Monitor with Confixs
       </p>
-      <div class="text-center pt-8">
+      <div class="text-center pt-12">
         <div class="relative inline-block mr-4">
           <button
             on:click={toggleDemo}
@@ -75,7 +75,7 @@
       <RetroOutline className="w-full">
         <div class="p-6">
           <div class="flex items-center justify-between mb-4">
-            <h2 class="text-2xl font-bold">Intersight Demo</h2>
+            <h2 class="text-2xl font-bold">Confixs Demo</h2>
             <button class="hover:text-gray-800" on:click={toggleDemo}>
               <XIcon />
             </button>

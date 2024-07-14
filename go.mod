@@ -1,4 +1,4 @@
-module github.com/ahmadrosid/go-fullstack-svelte
+module github.com/ahmadrosid/confixs
 
 go 1.21.1
 

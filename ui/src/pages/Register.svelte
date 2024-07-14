@@ -6,7 +6,7 @@
 
   let pb = new PocketBase('http://localhost:8090');
 
-  let username = '';
+  let name = '';
   let email = '';
   let password = '';
   let confirmPassword = '';
@@ -30,7 +30,7 @@
 
     try {
       const data = {
-        username,
+        name,
         email,
         password,
         passwordConfirm: confirmPassword,
@@ -84,13 +84,13 @@
 
       <form on:submit={handleRegister}>
         <div class="mb-4">
-          <label for="username" class="block mb-2">
-            Username <span class="text-red-500">*</span>
+          <label for="name" class="block mb-2">
+            Full Name <span class="text-red-500">*</span>
           </label>
           <input
             type="text"
-            id="username"
-            bind:value={username}
+            id="name"
+            bind:value={name}
             class="w-full px-3 py-2 border border-gray-300"
             required
           />

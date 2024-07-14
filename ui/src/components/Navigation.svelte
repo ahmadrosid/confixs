@@ -51,7 +51,7 @@
     <div class="flex justify-between items-center py-4">
       <div class="flex gap-4 items-center">
         <Link to="/" class="font-semibold text-xl text-gray-950">
-          Internsight
+          Confixs
         </Link>
       </div>
       <div class="flex items-center space-x-8">
@@ -66,15 +66,13 @@
           </Link>
         {:else}
           <div class="flex items-center space-x-8">
-            <Link to="/dashboard" class="text-sm hover:underline"
-              >Dashboard</Link
-            >
+            <Link to="/dashboard" class="text-sm hover:underline">Dashboard</Link>
 
-            <Link to="/projects" class="text-sm hover:underline">Project</Link>
+            <Link to="/projects" class="text-sm hover:underline">Websites</Link>
 
-            <Link to="/tasks" class="text-sm hover:underline">Task</Link>
+            <Link to="/tasks" class="text-sm hover:underline">SSL</Link>
 
-            <Link to="/dashboard" class="text-sm hover:underline">Course</Link>
+            <Link to="/dashboard" class="text-sm hover:underline">Config</Link>
 
             <Link to="/settings" class="text-sm hover:underline">Settings</Link>
           </div>
@@ -98,24 +96,6 @@
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     My Profile
-                  </Link>
-                  <Link
-                    to="/profile"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    My Assignments
-                  </Link>
-                  <Link
-                    to="/profile"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    My Bookmarks
-                  </Link>
-                  <Link
-                    to="/profile"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    My Notes
                   </Link>
                   <button
                     on:click={handleLogout}

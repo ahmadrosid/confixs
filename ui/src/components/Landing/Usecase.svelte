@@ -33,7 +33,7 @@
           <p class="text-xl text-gray-600 mb-6">
             Transforming internship management across industries.
           </p>
-          <a href="#" class="text-orange-600 hover:underline font-semibold">Explore all use cases &rarr;</a>
+          <a href="#" class="text-green-600 hover:underline font-semibold">Explore all use cases &rarr;</a>
         </div>
         <div class="md:w-7/12">
           <div class="space-y-8">
