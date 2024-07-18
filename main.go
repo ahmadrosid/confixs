@@ -120,7 +120,10 @@ func main() {
 	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
 		e.Router.GET("/api/list/config", handlers.ListConfigHandler)
 		e.Router.GET("/api/check/nginx", handlers.CheckNginxHandler)
-		e.Router.GET("/api/install/nginx", handlers.FakeInstallNginxHandler)
+		e.Router.GET("/api/install/nginx", handlers.InstallNginxHandler)
+
+		// usefull for testing nginx installation for ui
+		e.Router.GET("/api/install/nginx-fake", handlers.FakeInstallNginxHandler)
 		e.Router.GET("/*", apis.StaticDirectoryHandler(ui.DistDirFS, indexFallback))
 		return nil
 	})
