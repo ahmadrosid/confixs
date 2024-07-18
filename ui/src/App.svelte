@@ -9,6 +9,7 @@
   import Setting from "./pages/Setting.svelte";
   import Toaster from "./components/Toaster.svelte";
   import { setToastState } from "./lib/toast";
+  import Install from "./pages/Install.svelte";
   export let url = "";
   setToastState();
 </script>
@@ -23,4 +24,5 @@
   <Route path="/projects" component={Project} />
   <Route path="/tasks" component={Task} />
   <Route path="/settings" component={Setting} />
+  <Route path="/install" component={Install} />
 </Router>

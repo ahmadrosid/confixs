@@ -30,6 +30,6 @@
     $: buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 </script>
 
-<button class={buttonClasses}>
+<button class={buttonClasses} on:click {...$$props}>
     <slot></slot>
 </button>
