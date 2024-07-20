@@ -44,7 +44,10 @@ func GetConfigHandler(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to read file: " + err.Error()})
 	}
 
-	return c.JSON(http.StatusOK, map[string]interface{}{"data": content})
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"content": content,
+		"path":    request.FilePath,
+	})
 }
 
 func CheckNginxHandler(c echo.Context) error {

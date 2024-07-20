@@ -63,11 +63,11 @@
   ></div>
 
   <div class="container mx-auto max-w-6xl px-4 pb-12 relative">
-    <div class="py-12 pb-4">
+    <div class="py-16 pb-4">
       <h1 class="text-4xl font-bold">Welcome back {name}!</h1>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 py-4">
       <RetroOutline>
         <div class="p-6">
           <div class="text-xl font-bold">Total Sites</div>
@@ -88,7 +88,7 @@
       </RetroOutline>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 py-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 py-4">
       <RetroOutline childClassName="p-0">
         <div class="text-xl font-bold border-b border-gray-800 p-3">
           Site Status
@@ -120,7 +120,7 @@
       </RetroOutline>
     </div>
 
-    <div class="py-8">
+    <div class="py-4">
       <NginxConfigCard />
     </div>
   </div>
