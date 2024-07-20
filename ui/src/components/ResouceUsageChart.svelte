@@ -16,6 +16,7 @@
 
   import { onMount } from "svelte";
   import { navigate } from "svelte-routing";
+  import Loading from "./ui/Loading.svelte";
 
   let name = "";
   Chart.register(
@@ -90,7 +91,9 @@
     Server Resource Usage
   </div>
     {#if $resourceUsageQuery.isLoading}
-        <div class="p-4">Loading...</div>
+        <div class="p-4 flex justify-center">
+            <Loading />
+        </div>
     {:else if $resourceUsageQuery.isError}
         <div class="text-rose-500 p-4">Error: {$resourceUsageQuery.error.message}</div>
     {:else if $resourceUsageQuery.isSuccess}

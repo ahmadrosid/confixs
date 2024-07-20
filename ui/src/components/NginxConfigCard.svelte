@@ -4,6 +4,7 @@
   import Button from "./ui/Button.svelte";
   import CodeEditor from "./CodeEditor.svelte";
   import Dialog from "./ui/Dialog.svelte";
+  import Loading from "./ui/Loading.svelte";
 
   let dialogOpen = false;
   let filePath = "";
@@ -56,7 +57,9 @@
   <div class="px-4">
     <ul class="space-y-2 py-4 list-inside">
       {#if $configFilesQuery.isLoading}
-        <li>Loading...</li>
+        <div class="p-4 flex justify-center">
+          <Loading />
+        </div>
       {:else if $configFilesQuery.isError}
         <li class="text-rose-500">Error: {$configFilesQuery.error.message}</li>
       {:else if $configFilesQuery.isSuccess}
@@ -89,9 +92,13 @@
     </ul>
 
     <Dialog bind:open={dialogOpen} title={`Edit Config: ${filePath}`}>
-      <div class="border border-gray-400">
+      <div class="border border-gray-400 grid">
         <div class="overflow-y-auto h-full min-h-[400px] max-h-[400px]">
-          {#if $configDetailMutation.isError}
+          {#if $configDetailMutation.isPending}
+            <div class="w-full h-full grid place-content-center">
+              <Loading />
+            </div>
+          {:else if $configDetailMutation.isError}
             <div class="pb-4">Error: {$configDetailMutation.error.message}</div>
           {:else if $configDetailMutation.isSuccess}
             <CodeEditor value={$configDetailMutation.data.content} />
