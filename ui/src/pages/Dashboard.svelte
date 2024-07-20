@@ -1,5 +1,4 @@
 <script>
-  import { Bar } from "svelte-chartjs";
   import {
     Chart,
     Title,
@@ -17,6 +16,7 @@
   import { onMount } from "svelte";
   import { navigate } from "svelte-routing";
   import NginxConfigCard from "../components/NginxConfigCard.svelte";
+  import ResouceUsageChart from "../components/ResouceUsageChart.svelte";
 
   let name = "";
   Chart.register(
@@ -109,14 +109,7 @@
           </ul>
         </div>
       </RetroOutline>
-      <RetroOutline childClassName="p-0">
-        <div class="text-xl font-bold border-b border-gray-800 p-3">
-          Server Resource Usage
-        </div>
-        <div class="p-4">
-          <Bar data={chartData} options={chartOptions} />
-        </div>
-      </RetroOutline>
+      <ResouceUsageChart />
     </div>
 
     <div class="py-4">

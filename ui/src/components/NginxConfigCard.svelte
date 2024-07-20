@@ -2,7 +2,6 @@
   import { createQuery, createMutation } from "@tanstack/svelte-query";
   import RetroOutline from "./ui/RetroOutline.svelte";
   import Button from "./ui/Button.svelte";
-  import PlusIcon from "lucide-svelte/icons/plus";
   import CodeEditor from "./CodeEditor.svelte";
   import Dialog from "./ui/Dialog.svelte";
 
