@@ -10,16 +10,13 @@
     LinearScale,
   } from "chart.js";
 
-  import Button from "../components/ui/Button.svelte";
   import RetroOutline from "../components/ui/RetroOutline.svelte";
-  import PlusIcon from "lucide-svelte/icons/plus";
   import BaseLayout from "../components/BaseLayout.svelte";
   import { pb } from "../lib/pocketbase";
 
   import { onMount } from "svelte";
   import { navigate } from "svelte-routing";
   import NginxConfigCard from "../components/NginxConfigCard.svelte";
-  import CodeEditor from "../components/CodeEditor.svelte";
 
   let name = "";
   Chart.register(

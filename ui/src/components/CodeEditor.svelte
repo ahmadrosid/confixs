@@ -8,7 +8,7 @@
     nginx
   ) as unknown as LanguageSupport;
 
-  let value = ``;
+  export let value = ``;
 </script>
 
 <CodeMirror bind:value lang={nginxLanguage} />

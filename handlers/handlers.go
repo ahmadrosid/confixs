@@ -30,13 +30,16 @@ func ListConfigHandler(c echo.Context) error {
 }
 
 func GetConfigHandler(c echo.Context) error {
-	filePath := c.FormValue("filePath")
+	request := new(GetFileContentRequest)
+	if err := c.Bind(request); err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, map[string]interface{}{"error": err.Error()})
+	}
 
-	if !utils.IsPathSafe(filePath, "/etc/nginx/") {
+	if !utils.IsPathSafe(request.FilePath, "/etc/nginx/") {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Invalid file path"})
 	}
 
-	content, err := utils.GetFileContents(filePath)
+	content, err := utils.GetFileContents(request.FilePath)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to read file: " + err.Error()})
 	}
