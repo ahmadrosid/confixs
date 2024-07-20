@@ -3,7 +3,10 @@
     import RetroOutline from "./ui/RetroOutline.svelte";
     import Button from "./ui/Button.svelte";
     import PlusIcon from "lucide-svelte/icons/plus";
-  
+    import CodeEditor from './CodeEditor.svelte';
+    import Dialog from './ui/Dialog.svelte';
+    let dialogOpen = false;
+
     const fetchConfigFiles = async () => {
       const response = await fetch("/api/config/list");
       if (!response.ok) {
@@ -38,11 +41,21 @@
           <li>Error: {$configFilesQuery.error.message}</li>
         {:else if $configFilesQuery.isSuccess}
           {#each $configFilesQuery.data as configFile}
-            <li>
+            <li class="flex items-center justify-between pb-1">
               <h3 class="font-semibold">{configFile}</h3>
+              <Button size="sm" variant="warning">Edit</Button>
             </li>
           {/each}
         {/if}
       </ul>
+      <button on:click={() => dialogOpen = true}>Edit Config</button>
+
+      <Dialog bind:open={dialogOpen} title="Edit Config">
+        <div class="border">
+          <div class="overflow-y-auto h-full max-h-[400px]">
+            <CodeEditor />
+          </div>
+        </div>
+      </Dialog>
     </div>
   </RetroOutline>

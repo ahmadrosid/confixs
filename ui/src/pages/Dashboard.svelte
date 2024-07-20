@@ -126,8 +126,5 @@
     <div class="py-8">
       <NginxConfigCard />
     </div>
-    <div class="py-8">
-      <CodeEditor />
-    </div>
   </div>
 </BaseLayout>

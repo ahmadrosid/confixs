@@ -8,11 +8,7 @@
     nginx
   ) as unknown as LanguageSupport;
 
-  import RetroOutline from "./ui/RetroOutline.svelte";
-
   let value = ``;
 </script>
 
-<RetroOutline>
-  <CodeMirror bind:value lang={nginxLanguage} />
-</RetroOutline>
+<CodeMirror bind:value lang={nginxLanguage} />
