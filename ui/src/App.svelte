@@ -1,20 +1,20 @@
 <script>
   import { QueryClient, QueryClientProvider } from "@tanstack/svelte-query";
-
-  const queryClient = new QueryClient();
+  import { Router, Route } from "svelte-routing";
 
   import Login from "./pages/Login.svelte";
   import Register from "./pages/Register.svelte";
   import Home from "./pages/Home.svelte";
   import Dashboard from "./pages/Dashboard.svelte";
-  import { Router, Route } from "svelte-routing";
   import Project from "./pages/Project.svelte";
   import Config from "./pages/Config.svelte";
-  import Setting from "./pages/Setting.svelte";
+  import Setting from "./pages/Setting.svelte"
+  import Install from "./pages/Install.svelte";
   import Toaster from "./components/Toaster.svelte";
   import { setToastState } from "./lib/toast";
-  import Install from "./pages/Install.svelte";
+
   export let url = "";
+  const queryClient = new QueryClient();
   setToastState();
 </script>
 
