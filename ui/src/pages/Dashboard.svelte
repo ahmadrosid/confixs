@@ -18,6 +18,8 @@
 
   import { onMount } from "svelte";
   import { navigate } from "svelte-routing";
+  import NginxConfigCard from "../components/NginxConfigCard.svelte";
+  import CodeEditor from "../components/CodeEditor.svelte";
 
   let name = "";
   Chart.register(
@@ -122,33 +124,10 @@
     </div>
 
     <div class="py-8">
-      <RetroOutline className="w-full" childClassName="p-0">
-        <div class="border-b border-gray-800 p-3">
-          <div class="flex items-center justify-between">
-            <h2 class="text-xl font-bold">Nginx Config</h2>
-            <div>
-              <Button className="inline-flex items-center gap-2 pl-3">
-                <PlusIcon size="20" /> New Config</Button
-              >
-            </div>
-          </div>
-        </div>
-        <div class="px-4">
-          <ul class="space-y-2 py-4 list-inside">
-            <li>
-              <h3 class="font-semibold">/etc/nginx/conf.d/example.com.conf</h3>
-            </li>
-            <li>
-              <h3 class="font-semibold">/etc/nginx/conf.d/test.com.conf</h3>
-            </li>
-            <li>
-              <h3 class="font-semibold">
-                /etc/nginx/conf.d/dev.example.com.conf
-              </h3>
-            </li>
-          </ul>
-        </div>
-      </RetroOutline>
+      <NginxConfigCard />
+    </div>
+    <div class="py-8">
+      <CodeEditor />
     </div>
   </div>
 </BaseLayout>

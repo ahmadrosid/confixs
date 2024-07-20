@@ -1,4 +1,8 @@
 <script>
+  import { QueryClient, QueryClientProvider } from "@tanstack/svelte-query";
+
+  const queryClient = new QueryClient();
+
   import Login from "./pages/Login.svelte";
   import Register from "./pages/Register.svelte";
   import Home from "./pages/Home.svelte";
@@ -16,13 +20,15 @@
 
 <Toaster />
 
-<Router {url}>
-  <Route path="/" component={Home} /> 
-  <Route path="/login" component={Login} />
-  <Route path="/register" component={Register} />
-  <Route path="/dashboard" component={Dashboard} />
-  <Route path="/projects" component={Project} />
-  <Route path="/tasks" component={Task} />
-  <Route path="/settings" component={Setting} />
-  <Route path="/install" component={Install} />
-</Router>
+<QueryClientProvider client={queryClient}>
+  <Router {url}>
+    <Route path="/" component={Home} />
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+    <Route path="/dashboard" component={Dashboard} />
+    <Route path="/projects" component={Project} />
+    <Route path="/tasks" component={Task} />
+    <Route path="/settings" component={Setting} />
+    <Route path="/install" component={Install} />
+  </Router>
+</QueryClientProvider>

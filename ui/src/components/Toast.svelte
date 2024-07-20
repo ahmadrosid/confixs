@@ -1,17 +1,15 @@
 <script lang="ts">
 	import { getToastState, type ToastType, type ToastMode } from "../lib/toast";
-	import {
-	  XIcon,
-	  CheckCircleIcon,
-	  AlertCircleIcon,
-	  InfoIcon,
-	} from "lucide-svelte";
-	import type {
-	  XIcon as XIconType,
-	  CheckCircleIcon as CheckCircleIconType,
-	  AlertCircleIcon as AlertCircleIconType,
-	  InfoIcon as InfoIconType,
-	} from "lucide-svelte";
+	import XIcon from "lucide-svelte/icons/x";
+	import CheckCircleIcon from "lucide-svelte/icons/circle-check";
+	import AlertCircleIcon from "lucide-svelte/icons/circle-alert";
+	import InfoIcon from "lucide-svelte/icons/info";
+
+	import type XIconType from "lucide-svelte/icons/x";
+	import type CheckCircleIconType from "lucide-svelte/icons/check-check";
+	import type AlertCircleIconType from "lucide-svelte/icons/circle-alert";
+	import type InfoIconType from "lucide-svelte/icons/info";
+
 	import { crossfade } from "svelte/transition";
 	import { cubicInOut } from "svelte/easing";
 	import RetroOutline from "./ui/RetroOutline.svelte";

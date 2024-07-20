@@ -118,7 +118,8 @@ func main() {
 	})
 
 	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
-		e.Router.GET("/api/list/config", handlers.ListConfigHandler)
+		e.Router.GET("/api/config/list", handlers.ListConfigHandler)
+		e.Router.POST("/api/config/get", handlers.GetConfigHandler)
 		e.Router.GET("/api/check/nginx", handlers.CheckNginxHandler)
 		e.Router.GET("/api/install/nginx", handlers.InstallNginxHandler)
 

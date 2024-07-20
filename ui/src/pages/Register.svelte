@@ -125,6 +125,8 @@
             <span
               class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
               on:click={() => togglePasswordVisibility('password')}
+              role="button"
+              tabindex="0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -193,11 +195,11 @@
           <label class="flex items-center">
             <input type="checkbox" class="mr-2" bind:checked={termsAccepted} required />
             <span class="text-sm">
-              I agree to the <a href="#" class="text-blue-600 hover:underline"
+              I agree to the <a href="/" class="text-blue-600 hover:underline"
                 >Terms of Service</a
               >
               and
-              <a href="#" class="text-blue-600 hover:underline"
+              <a href="/" class="text-blue-600 hover:underline"
                 >Privacy Policy</a
               >
             </span>
