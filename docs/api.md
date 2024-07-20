@@ -87,6 +87,7 @@ curl -X GET http://localhost:8090/api/install/nginx
 ```
 
 #### JavaScript (fetch)
+
 ```javascript
 fetch('http://localhost:8090/api/install/nginx')
   .then(response => response.text())
@@ -95,3 +96,23 @@ fetch('http://localhost:8090/api/install/nginx')
 ```
 
 Note: The install endpoint returns a stream of data. The JavaScript example above will log the entire response once it's complete. For real-time updates, you might want to use Server-Sent Events (SSE) instead.
+
+## Get Resource Usage
+
+- **Endpoint:** `/api/resource/usage`
+- **Method:** `GET`
+
+#### curl
+
+```bash
+curl -s -X GET http://localhost:8090/api/resource/usage
+```
+
+#### JavaScript (fetch)
+
+```javascript
+fetch('http://localhost:8090/api/resource/usage')
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```

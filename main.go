@@ -122,6 +122,7 @@ func main() {
 		e.Router.POST("/api/config/get", handlers.GetConfigHandler)
 		e.Router.GET("/api/check/nginx", handlers.CheckNginxHandler)
 		e.Router.GET("/api/install/nginx", handlers.InstallNginxHandler)
+		e.Router.GET("/api/resource/usage", handlers.GetChartDataHandler)
 
 		// usefull for testing nginx installation for ui
 		e.Router.GET("/api/install/nginx-fake", handlers.FakeInstallNginxHandler)

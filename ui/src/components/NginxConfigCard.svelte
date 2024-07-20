@@ -59,7 +59,7 @@
       {#if $configFilesQuery.isLoading}
         <li>Loading...</li>
       {:else if $configFilesQuery.isError}
-        <li>Error: {$configFilesQuery.error.message}</li>
+        <li class="text-rose-500">Error: {$configFilesQuery.error.message}</li>
       {:else if $configFilesQuery.isSuccess}
 
       <li class="flex items-center justify-between pb-1">
