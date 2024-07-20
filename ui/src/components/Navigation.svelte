@@ -72,7 +72,7 @@
 
             <Link to="/tasks" class="text-sm hover:underline">SSL</Link>
 
-            <Link to="/dashboard" class="text-sm hover:underline">Config</Link>
+            <Link to="/config" class="text-sm hover:underline">Config</Link>
 
             <Link to="/settings" class="text-sm hover:underline">Settings</Link>
           </div>

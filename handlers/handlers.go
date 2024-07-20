@@ -12,21 +12,13 @@ import (
 
 func ListConfigHandler(c echo.Context) error {
 	availablePath := "/etc/nginx/sites-available"
-	enabledPath := "/etc/nginx/sites-enabled"
 
-	available, err := utils.GetFileList(availablePath)
+	data, err := utils.GetFileList(availablePath)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to get available configs: " + err.Error()})
 	}
 
-	enabled, err := utils.GetFileList(enabledPath)
-	if err != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to get enabled configs: " + err.Error()})
-	}
-
-	allConfigs := append(available, enabled...)
-
-	return c.JSON(http.StatusOK, map[string]interface{}{"data": allConfigs})
+	return c.JSON(http.StatusOK, map[string]interface{}{"data": data})
 }
 
 func GetConfigHandler(c echo.Context) error {
