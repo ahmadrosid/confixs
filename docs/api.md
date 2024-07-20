@@ -45,9 +45,9 @@ curl -X POST http://localhost:8090/api/config/get \
 fetch('http://localhost:8090/api/config/get', {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Type': 'application/json',
   },
-  body: 'filePath=/etc/nginx/sites-available/default'
+  body: JSON.stringify({ filePath: '/etc/nginx/sites-available/default' })
 })
   .then(response => response.json())
   .then(data => console.log(data))
