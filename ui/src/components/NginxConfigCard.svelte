@@ -44,7 +44,6 @@
     mutationKey: ["configDetail"],
     mutationFn: fetchConfigDetail,
     onSuccess: (data) => {
-      console.log({data});
       filePath = data.path;
       dialogOpen = true;
     },

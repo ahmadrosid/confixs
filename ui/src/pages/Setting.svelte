@@ -47,10 +47,7 @@
   });
 
   const saveSettings = () => {
-    // Here you would typically send the updated settings to your backend
-    console.log("Saving settings:", { user });
-    // Placeholder for success message
-    alert("Settings saved successfully!");
+    // TODO: implement save settings
   };
 
   const setActiveSection = (section: string) => {

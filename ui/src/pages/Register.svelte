@@ -41,7 +41,6 @@
       // Optionally, you can automatically log in the user after registration
       await pb.collection('users').authWithPassword(email, password);
       
-      console.log('Registration successful');
       navigate('/dashboard'); // Redirect to dashboard or home page after successful registration
     } catch (err: any) {
       console.error('Registration failed:', err);

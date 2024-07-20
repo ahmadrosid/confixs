@@ -50,7 +50,6 @@
     }
 
     const user = pb.authStore.model;
-    console.log("user", user);
     if (user) {
       name = user.name;
     }

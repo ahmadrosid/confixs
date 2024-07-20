@@ -11,7 +11,6 @@
   let eventSource: EventSource | null = null;
 
   function startInstallation(): void {
-    console.log("startInstallation");
     isInstalling = true;
     installationOutput = [];
     error = null;

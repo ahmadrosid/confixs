@@ -11,11 +11,10 @@
   async function handleLogin() {
     try {
       const authData = await pb.collection('users').authWithPassword(email, password);
-      console.log('Logged in:', authData);
       navigate('/dashboard');
     } catch (err) {
       console.error('Login failed:', err);
-      error = 'Invalid email or password' + email + password;
+      error = 'Invalid email or password';
     }
   }
 
