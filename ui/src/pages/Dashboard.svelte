@@ -8,6 +8,7 @@
   import NginxConfigCard from "../components/NginxConfigCard.svelte";
   import ResouceUsageChart from "../components/ResouceUsageChart.svelte";
   import ApplicationStatusCard from "../components/ApplicationStatusCard.svelte";
+  import SiteStatusCard from "../components/SiteStatusCard.svelte";
 
   let name = "";
 
@@ -56,27 +57,7 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 py-4">
-      <RetroOutline childClassName="p-0">
-        <div class="text-xl font-bold border-b border-gray-800 p-3">
-          Site Status
-        </div>
-        <div class="p-4">
-          <ul class="space-y-2 list-inside">
-            <li>
-              <h3 class="font-semibold">example.com</h3>
-              <p class="text-sm">Lesson intro database course</p>
-            </li>
-            <li>
-              <h3 class="font-semibold">test.com</h3>
-              <p class="text-sm">Setup database schema</p>
-            </li>
-            <li>
-              <h3 class="font-semibold">dev.example.com</h3>
-              <p class="text-sm">Finish deployment</p>
-            </li>
-          </ul>
-        </div>
-      </RetroOutline>
+      <SiteStatusCard />
       <ResouceUsageChart />
     </div>
 
