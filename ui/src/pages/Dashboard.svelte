@@ -1,14 +1,4 @@
 <script>
-  import {
-    Chart,
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale,
-  } from "chart.js";
-
   import RetroOutline from "../components/ui/RetroOutline.svelte";
   import BaseLayout from "../components/BaseLayout.svelte";
   import { pb } from "../lib/pocketbase";
@@ -19,29 +9,6 @@
   import ResouceUsageChart from "../components/ResouceUsageChart.svelte";
 
   let name = "";
-  Chart.register(
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale
-  );
-  let chartData = {
-    labels: ["CPU", "Memory", "Disk"],
-    datasets: [
-      {
-        label: "Usage",
-        data: [65, 80, 45],
-        backgroundColor: "#000",
-      },
-    ],
-  };
-
-  let chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-  };
 
   onMount(async () => {
     if (!pb.authStore.isValid) {

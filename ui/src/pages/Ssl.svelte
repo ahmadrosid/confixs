@@ -48,8 +48,8 @@
 
     <div class="container mx-auto max-w-6xl px-4 pb-12 relative">
         <div class="py-12 pb-4 flex justify-between items-center">
-            <h1 class="text-4xl font-bold">Tasks</h1>
-            <Button> <PlusIcon class="mr-1 w-4 h-4"/> Add Task</Button>
+            <h1 class="text-4xl font-bold">SSL</h1>
+            <Button> <PlusIcon class="mr-1 w-4 h-4"/> Add SSL</Button>
         </div>
 
         <div class="py-8">

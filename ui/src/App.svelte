@@ -8,10 +8,10 @@
   import Dashboard from "./pages/Dashboard.svelte";
   import Project from "./pages/Project.svelte";
   import Config from "./pages/Config.svelte";
-  import Setting from "./pages/Setting.svelte"
   import Install from "./pages/Install.svelte";
   import Toaster from "./components/Toaster.svelte";
   import { setToastState } from "./lib/toast";
+  import Ssl from "./pages/Ssl.svelte";
 
   export let url = "";
   const queryClient = new QueryClient();
@@ -28,7 +28,7 @@
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/projects" component={Project} />
     <Route path="/config" component={Config} />
-    <Route path="/settings" component={Setting} />
+    <Route path="/ssl" component={Ssl} />
     <Route path="/install" component={Install} />
   </Router>
 </QueryClientProvider>

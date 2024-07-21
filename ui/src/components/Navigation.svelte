@@ -70,11 +70,11 @@
 
             <Link to="/projects" class="text-sm hover:underline">Websites</Link>
 
-            <Link to="/tasks" class="text-sm hover:underline">SSL</Link>
+            <Link to="/ssl" class="text-sm hover:underline">SSL</Link>
 
             <Link to="/config" class="text-sm hover:underline">Config</Link>
 
-            <Link to="/settings" class="text-sm hover:underline">Settings</Link>
+            <!-- <Link to="/settings" class="text-sm hover:underline">Settings</Link> -->
           </div>
 
           <div class="relative" bind:this={menuRef}>
