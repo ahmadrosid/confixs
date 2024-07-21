@@ -32,7 +32,7 @@
     datasets: [
       {
         label: "Usage",
-        data: [0, 0, 0], 
+        data: [0, 0, 0],
         backgroundColor: "#000",
       },
     ],
@@ -70,7 +70,7 @@
     chartData.datasets[0].data = [
       parseFloat(data.cpu.toFixed(2)),
       parseFloat(data.memory.toFixed(2)),
-      parseFloat(data.disk.toFixed(2))
+      parseFloat(data.disk.toFixed(2)),
     ];
 
     return {
@@ -90,15 +90,17 @@
   <div class="text-xl font-bold border-b border-gray-800 p-3">
     Server Resource Usage
   </div>
-    {#if $resourceUsageQuery.isLoading}
-        <div class="p-4 flex justify-center">
-            <Loading />
-        </div>
-    {:else if $resourceUsageQuery.isError}
-        <div class="text-rose-500 p-4">Error: {$resourceUsageQuery.error.message}</div>
-    {:else if $resourceUsageQuery.isSuccess}
-        <div class="p-4">
-            <Bar data={chartData} options={chartOptions} />
-        </div>
-    {/if}
+  {#if $resourceUsageQuery.isLoading}
+    <div class="p-4 flex justify-center">
+      <Loading />
+    </div>
+  {:else if $resourceUsageQuery.isError}
+    <div class="text-rose-500 p-4">
+      Error: {$resourceUsageQuery.error.message}
+    </div>
+  {:else if $resourceUsageQuery.isSuccess}
+    <div class="p-4">
+      <Bar data={chartData} options={chartOptions} />
+    </div>
+  {/if}
 </RetroOutline>
