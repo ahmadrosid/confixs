@@ -7,6 +7,7 @@
   import { pb } from "../lib/pocketbase";
   import NginxConfigCard from "../components/NginxConfigCard.svelte";
   import ResouceUsageChart from "../components/ResouceUsageChart.svelte";
+  import ApplicationStatusCard from "../components/ApplicationStatusCard.svelte";
 
   let name = "";
 
@@ -79,7 +80,8 @@
       <ResouceUsageChart />
     </div>
 
-    <div class="py-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 py-4">
+      <ApplicationStatusCard />
       <NginxConfigCard />
     </div>
   </div>
