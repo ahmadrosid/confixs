@@ -1,10 +1,10 @@
 <script>
+  import { onMount } from "svelte";
+  import { navigate } from "svelte-routing";
+
   import RetroOutline from "../components/ui/RetroOutline.svelte";
   import BaseLayout from "../components/BaseLayout.svelte";
   import { pb } from "../lib/pocketbase";
-
-  import { onMount } from "svelte";
-  import { navigate } from "svelte-routing";
   import NginxConfigCard from "../components/NginxConfigCard.svelte";
   import ResouceUsageChart from "../components/ResouceUsageChart.svelte";
 
