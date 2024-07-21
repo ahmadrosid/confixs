@@ -1,13 +1,30 @@
 <script lang="ts">
   import { XIcon } from "lucide-svelte";
   import RetroOutline from "./RetroOutline.svelte";
+  import { onMount, onDestroy, createEventDispatcher } from 'svelte';
 
   export let open = false;
   export let title = "Dialog";
 
+  const dispatch = createEventDispatcher();
+
   function close() {
-    open = false;
+    dispatch('close');
   }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && open) {
+      close();
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener('keydown', handleKeydown);
+  });
+
+  onDestroy(() => {
+    document.removeEventListener('keydown', handleKeydown);
+  });
 
   function clickOutside(node: HTMLElement) {
     const handleClick = (event: MouseEvent) => {
@@ -29,7 +46,9 @@
   }
 
   function handleOutclick() {
-    open = false;
+    if (open) {
+      close();
+    }
   }
 </script>
 

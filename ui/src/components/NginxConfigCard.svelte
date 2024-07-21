@@ -9,6 +9,10 @@
   let dialogOpen = false;
   let filePath = "";
 
+  const closeDialog = () => {
+    dialogOpen = false;
+  }
+
   const fetchConfigFiles = async () => {
     const response = await fetch("/api/config/list");
     if (!response.ok) {
@@ -42,12 +46,14 @@
 
   const configDetailMutation = createMutation({
     mutationKey: ["configDetail"],
-    mutationFn: fetchConfigDetail,
-    onSuccess: (data) => {
-      filePath = data.path;
-      dialogOpen = true;
-    },
+    mutationFn: fetchConfigDetail
   });
+
+  $: if ($configDetailMutation.isSuccess) {
+    let data = $configDetailMutation.data;
+    filePath = data.path;
+    dialogOpen = true;
+  }
 </script>
 
 <RetroOutline className="w-full" childClassName="p-0">
@@ -91,7 +97,7 @@
       {/if}
     </ul>
 
-    <Dialog bind:open={dialogOpen} title={`Edit Config: ${filePath}`}>
+    <Dialog bind:open={dialogOpen} on:close={closeDialog} title={`Edit Config: ${filePath}`}>
       <div class="border border-gray-400 grid">
         <div class="overflow-y-auto h-full min-h-[400px] max-h-[400px]">
           {#if $configDetailMutation.isPending}
