@@ -11,7 +11,7 @@
 
   const closeDialog = () => {
     dialogOpen = false;
-  }
+  };
 
   const fetchConfigFiles = async () => {
     const response = await fetch("/api/config/list");
@@ -46,7 +46,7 @@
 
   const configDetailMutation = createMutation({
     mutationKey: ["configDetail"],
-    mutationFn: fetchConfigDetail
+    mutationFn: fetchConfigDetail,
   });
 
   $: if ($configDetailMutation.isSuccess) {
@@ -69,25 +69,24 @@
       {:else if $configFilesQuery.isError}
         <li class="text-rose-500">Error: {$configFilesQuery.error.message}</li>
       {:else if $configFilesQuery.isSuccess}
-
-      <li class="flex items-center justify-between pb-1">
-        <h3 class="font-semibold">/etc/nginx/nginx.conf</h3>
-        <Button
-          size="sm"
-          variant="warning"
-          on:click={() =>{
-            dialogOpen = true;
-            $configDetailMutation.mutate({ path: "/etc/nginx/nginx.conf" });
-          }}>Edit</Button
-        >
-      </li>
+        <li class="flex items-center justify-between pb-1">
+          <h3 class="font-semibold">/etc/nginx/nginx.conf</h3>
+          <Button
+            size="sm"
+            variant="warning"
+            on:click={() => {
+              dialogOpen = true;
+              $configDetailMutation.mutate({ path: "/etc/nginx/nginx.conf" });
+            }}>Edit</Button
+          >
+        </li>
         {#each $configFilesQuery.data as configFile}
           <li class="flex items-center justify-between pb-1">
             <h3 class="font-semibold">{configFile}</h3>
             <Button
               size="sm"
               variant="warning"
-              on:click={() =>{
+              on:click={() => {
                 dialogOpen = true;
                 $configDetailMutation.mutate({ path: configFile });
               }}>Edit</Button
@@ -97,7 +96,11 @@
       {/if}
     </ul>
 
-    <Dialog bind:open={dialogOpen} on:close={closeDialog} title={`Edit Config: ${filePath}`}>
+    <Dialog
+      bind:open={dialogOpen}
+      on:close={closeDialog}
+      title={`Edit Config: ${filePath}`}
+    >
       <div class="border border-gray-400 grid">
         <div class="overflow-y-auto h-full min-h-[400px] max-h-[400px]">
           {#if $configDetailMutation.isPending}
@@ -113,7 +116,9 @@
       </div>
       <div class="pt-4">
         <div class="flex gap-2 justify-end">
-          <Button on:click={() => (dialogOpen = false)} variant="secondary">Cancel</Button>
+          <Button on:click={() => (dialogOpen = false)} variant="secondary"
+            >Cancel</Button
+          >
           <Button>Save</Button>
         </div>
       </div>

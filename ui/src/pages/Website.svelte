@@ -1,25 +1,19 @@
-<script>
+<script lang="ts">
   import Button from "../components/ui/Button.svelte";
   import RetroOutline from "../components/ui/RetroOutline.svelte";
   import PlusIcon from "lucide-svelte/icons/plus";
   import BaseLayout from "../components/BaseLayout.svelte";
   import Dialog from "../components/ui/Dialog.svelte";
+  import { pb } from "../lib/pocketbase";
+  import { createQuery } from "@tanstack/svelte-query";
+  import Loading from "../components/ui/Loading.svelte";
 
-  let websites = [
-    {
-      id: 1,
-      domain: "example.com",
-      folder: "/var/www/example",
-      status: "Active",
-    },
-    { id: 2, domain: "test.com", folder: "/var/www/test", status: "Inactive" },
-    {
-      id: 3,
-      domain: "demo.net",
-      folder: "/var/www/demo",
-      status: "Maintenance",
-    },
-  ];
+  type Website = {
+    id: string;
+    domain: string;
+    folder: string;
+    status: string;
+  };
 
   let showDialog = false;
 
@@ -27,17 +21,40 @@
     domain: "",
     folder: "",
     status: "Active",
+    authorId: '',
   };
+
+  const configWebsitesQuery = createQuery({
+    queryKey: ["fetchWebsites"],
+    queryFn: fetchWebsites,
+  });
 
   function toggleDialog() {
     showDialog = !showDialog;
   }
 
-  function addWebsite() {
-    websites = [...websites, { id: websites.length + 1, ...newWebsite }];
-    newWebsite = { domain: "", folder: "", status: "Active" };
+  async function addWebsite() {
+    const record = await pb.collection("websites").create({
+      ...newWebsite,
+      authorId: pb.authStore.model?.id,
+    });
     toggleDialog();
+    $configWebsitesQuery.refetch();
   }
+
+  async function fetchWebsites(): Promise<Website[]> {
+    const records = await pb.collection("websites").getFullList({
+      sort: "-created",
+    });
+
+    return records.map((record) => ({
+      id: record.id as string,
+      domain: record.domain as string,
+      folder: record.folder as string,
+      status: record.status as string,
+    }));
+  }
+
 </script>
 
 <BaseLayout>
@@ -69,30 +86,57 @@
             </tr>
           </thead>
           <tbody>
-            {#each websites as website}
+            {#if $configWebsitesQuery.isLoading}
               <tr>
-                <td class="p-2 px-4">{website.id}</td>
-                <td class="p-2">{website.domain}</td>
-                <td class="p-2">{website.folder}</td>
-                <td class="p-2">
-                  <span
-                    class="px-2 py-1 rounded-full {website.status ===
-                    'Active'
-                      ? 'text-green-500'
-                      : website.status === 'Inactive'
-                        ? 'text-red-500'
-                        : 'text-yellow-500'}"
-                  >
-                    {website.status}
-                  </span>
-                </td>
-                <td class="p-2">
-                  <Button className="mr-2" variant="outline-primary">View</Button>
-                  <Button className="mr-2" variant="warning" >Edit</Button>
-                  <Button variant="danger">Delete</Button>
+                <td colspan="4">
+                  <div class="p-4 flex justify-center">
+                    <Loading />
+                  </div>
                 </td>
               </tr>
-            {/each}
+            {:else if $configWebsitesQuery.isError}
+              <tr>
+                <td colspan="4">
+                  <div class="text-rose-500 p-4">
+                    Error: {$configWebsitesQuery.error.message}
+                  </div>
+                </td>
+              </tr>
+            {:else if $configWebsitesQuery.isSuccess}
+              {#if $configWebsitesQuery.data.length === 0}
+                <tr>
+                  <td colspan="4">
+                    <div class="text-gray-500 p-4">No websites found.</div>
+                  </td>
+                </tr>
+              {/if}
+
+              {#each $configWebsitesQuery.data as website}
+                <tr>
+                  <td class="p-2 px-4">{website.id}</td>
+                  <td class="p-2">{website.domain}</td>
+                  <td class="p-2">{website.folder}</td>
+                  <td class="p-2">
+                    <span
+                      class="px-2 py-1 rounded-full {website.status === 'Active'
+                        ? 'text-green-500'
+                        : website.status === 'Inactive'
+                          ? 'text-red-500'
+                          : 'text-yellow-500'}"
+                    >
+                      {website.status}
+                    </span>
+                  </td>
+                  <td class="p-2">
+                    <Button className="mr-2" variant="outline-primary"
+                      >View</Button
+                    >
+                    <Button className="mr-2" variant="warning">Edit</Button>
+                    <Button variant="danger">Delete</Button>
+                  </td>
+                </tr>
+              {/each}
+            {/if}
           </tbody>
         </table>
       </RetroOutline>
@@ -148,15 +192,14 @@
 </Dialog>
 
 <style>
-    .web-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .web-table th,
-    .web-table td {
-      padding: 12px;
-      border: none;
-      text-align: left;
-    }
-  </style>
-  
+  .web-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .web-table th,
+  .web-table td {
+    padding: 12px;
+    border: none;
+    text-align: left;
+  }
+</style>
