@@ -6,7 +6,7 @@
   import Register from "./pages/Register.svelte";
   import Home from "./pages/Home.svelte";
   import Dashboard from "./pages/Dashboard.svelte";
-  import Project from "./pages/Project.svelte";
+  import Website from "./pages/Website.svelte";
   import Config from "./pages/Config.svelte";
   import Install from "./pages/Install.svelte";
   import Toaster from "./components/Toaster.svelte";
@@ -26,7 +26,7 @@
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route path="/dashboard" component={Dashboard} />
-    <Route path="/projects" component={Project} />
+    <Route path="/websites" component={Website} />
     <Route path="/config" component={Config} />
     <Route path="/ssl" component={Ssl} />
     <Route path="/install" component={Install} />

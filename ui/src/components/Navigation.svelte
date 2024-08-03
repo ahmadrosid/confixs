@@ -68,7 +68,7 @@
           <div class="flex items-center space-x-8">
             <Link to="/dashboard" class="text-sm hover:underline">Dashboard</Link>
 
-            <Link to="/projects" class="text-sm hover:underline">Websites</Link>
+            <Link to="/websites" class="text-sm hover:underline">Websites</Link>
 
             <Link to="/ssl" class="text-sm hover:underline">SSL</Link>
 
