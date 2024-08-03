@@ -87,8 +87,8 @@
                   </span>
                 </td>
                 <td class="p-2">
-                  <Button class="mr-2" variant="outline-primary">View</Button>
-                  <Button class="mr-2" >Edit</Button>
+                  <Button className="mr-2" variant="outline-primary">View</Button>
+                  <Button className="mr-2" variant="warning" >Edit</Button>
                   <Button variant="danger">Delete</Button>
                 </td>
               </tr>
