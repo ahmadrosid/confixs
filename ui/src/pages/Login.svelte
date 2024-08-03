@@ -24,14 +24,7 @@
   <div class="bg-white flex items-center justify-center min-h-screen">
     <RetroOutline className='max-w-md'>
       <div class="bg-white p-6">
-        <h1 class="text-2xl font-bold mb-6">Login</h1>
-
-        <p class="mb-4">
-          Don't have an account? <Link
-            to="/register"
-            class="text-blue-600 hover:underline">Register</Link
-          >
-        </p>
+        <h1 class="text-2xl font-bold mb-6">Login to your account</h1>
 
         <form on:submit|preventDefault={handleLogin}>
           <div class="mb-4">
@@ -100,17 +93,12 @@
           >
         </form>
 
-        <div class="mt-4">
-          <a href="#" class="text-blue-600 hover:underline"
-            >Forgot your password? Request reset</a
+        <p class="mt-4 text-center">
+          Don't have an account? <Link
+            to="/register"
+            class="text-blue-600 hover:underline">Register</Link
           >
-        </div>
-
-        <div class="mt-2">
-          <a href="#" class="text-blue-600 hover:underline"
-            >Not yet verified? Request verification</a
-          >
-        </div>
+        </p>
       </div>
     </RetroOutline>
   </div>
