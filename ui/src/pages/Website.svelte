@@ -5,29 +5,24 @@
     import BaseLayout from "../components/BaseLayout.svelte";
     import Dialog from "../components/ui/Dialog.svelte";
     
-    // Sample data for websites
     let websites = [
         { id: 1, domain: "example.com", folder: "/var/www/example", status: "Active" },
         { id: 2, domain: "test.com", folder: "/var/www/test", status: "Inactive" },
         { id: 3, domain: "demo.net", folder: "/var/www/demo", status: "Maintenance" }
     ];
 
-    // Dialog state
     let showDialog = false;
 
-    // New website form data
     let newWebsite = {
         domain: "",
         folder: "",
         status: "Active"
     };
 
-    // Function to toggle dialog
     function toggleDialog() {
         showDialog = !showDialog;
     }
 
-    // Function to add a new website
     function addWebsite() {
         websites = [...websites, { id: websites.length + 1, ...newWebsite }];
         newWebsite = { domain: "", folder: "", status: "Active" };
