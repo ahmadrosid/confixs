@@ -40,7 +40,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
       {#each features as feature}
         <RetroOutline>
-          <div class="p-6">
+          <div class="p-6 bg-white">
             <div class="flex items-center mb-4">
               <div
                 class="w-12 h-12 flex items-center justify-center rounded-full bg-green-200 mr-4"
