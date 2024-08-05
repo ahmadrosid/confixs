@@ -1,5 +1,7 @@
 # Go Fullstack Pocketbase with Svelte 
 
+THIS PROJECT STILL WORK IN PROGRESS!
+
 ![demo](/ui/public/demo.png)
 
 ## How to run the app?
